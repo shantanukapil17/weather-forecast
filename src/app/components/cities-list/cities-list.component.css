@@ -1,0 +1,39 @@
+.container {
+    display: flex;
+    flex-direction: column;
+}
+
+.cities-dropdown {
+    width: -webkit-fill-available;
+    height: 30px;
+}
+
+.display-city {
+    display: flex;
+    width: 80%;
+    margin: 20px 0px 0px 150px;
+    height: 50px;
+    background-color: #7758BB;
+    /* text-align: center; */
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    color: white;
+}
+
+.cities-list {
+    text-transform: uppercase;
+}
+
+.white-text {
+    color: white;
+}
+
+.windy-icon {
+    display: flex;
+    color: white;
+    font-size: 50px;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}

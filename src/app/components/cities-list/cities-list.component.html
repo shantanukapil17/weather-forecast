@@ -1,0 +1,16 @@
+<div class="container">
+    <div>
+        <label for="cityName" class="white-text">Selectionner votre ville:</label>
+    </div>
+    <div>
+        <select name="city" class="cities-dropdown cities-list" (change)="onSelectCity($event?.target?.value)">
+            <option *ngFor="let city of citiesList" [value]="city.id" class="cities-list">{{city?.nm}}</option>
+        </select>
+
+        <div class="display-city">{{selectedCity?.nm}}</div>
+    </div>
+</div>
+<app-loader *ngIf="isLoading"></app-loader>
+
+<div class="wi wi-icon-905 windy-icon"></div>
+<div class="windy-icon">2&deg;</div>
