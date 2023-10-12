@@ -2,7 +2,7 @@
     <div>
         <label for="cityName" class="white-text">Selectionner votre ville:</label>
     </div>
-    <div>
+    <div style="margin: 17px;">
         <select name="city" class="cities-dropdown cities-list" (change)="onSelectCity($event?.target?.value)">
             <option *ngFor="let city of citiesList" [value]="city.id" class="cities-list">{{city?.nm}}</option>
         </select>
@@ -13,4 +13,8 @@
 <app-loader *ngIf="isLoading"></app-loader>
 
 <div class="wi wi-icon-905 windy-icon"></div>
-<div class="windy-icon">2&deg;</div>
+<div class="windy-icon">{{currentCityWeather?.main?.temp}}&deg;</div>
+
+<app-city-weather *ngIf="selectedCity" [lat]="selectedCity?.lat || citiesList[0]?.lat" [lon]="selectedCity?.lon || citiesList[0]?.lon">
+</app-city-weather>
+

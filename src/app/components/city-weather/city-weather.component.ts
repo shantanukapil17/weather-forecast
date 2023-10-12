@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { WeatherService } from 'src/app/services/weather.service';
 
 @Component({
   selector: 'app-city-weather',
@@ -6,10 +7,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./city-weather.component.css']
 })
 export class CityWeatherComponent implements OnInit {
+  @Input() lat : number;
+  @Input() lon : number;
 
-  constructor() { }
+  constructor(
+    private weatherService: WeatherService
+  ) { }
+  
 
-  ngOnInit(): void {
+  ngOnInit() {
+    console.log(this.lat, this.lon);
   }
+
+  
 
 }

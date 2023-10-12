@@ -11,18 +11,18 @@ export class WeatherService {
 
   constructor(private http: HttpClient) { }
 
-  getCitiesJson(): Observable<any> {
-    return this.http.get('assets/cities-fr.json');
+  getCitiesJson(): Promise<any> {
+    return this.http.get('assets/cities-fr.json').toPromise();
   }
 
-  getCurrentWeather(lat: number, lon: number): Observable<any> {
+  getCurrentWeather(lat: number, lon: number): Promise<any> {
     const url = `${this.apiUrl}/weather?lat=${lat}&lon=${lon}&appid=${this.apiKey}`;
-    return this.http.get(url);
+    return this.http.get(url).toPromise();
   }
 
-  getWeatherForecast(lat: number, lon: number): Observable<any> {
+  getWeatherForecast(lat: number, lon: number): Promise<any> {
     const url = `${this.apiUrl}/forecast?lat=${lat}&lon=${lon}&appid=${this.apiKey}`;
-    return this.http.get(url);
+    return this.http.get(url).toPromise();
   }
 
 }

@@ -9,49 +9,58 @@ import { WeatherService } from 'src/app/services/weather.service';
 export class CitiesListComponent implements OnInit {
 
   citiesList = [];
-  weatherData: any;
+  currentCityWeather: any;
+  weatherForecast: any;
   selectedCity: any;
-  public isLoading: boolean = false;
+  isLoading: boolean = false;
 
   constructor(
-    private weatherService: WeatherService ,
-    ) { }
+    private weatherService: WeatherService
+  ) { }
 
-  ngOnInit(): void {
-    this.getCitiesList();
+  async ngOnInit() {
+    await this.getCitiesList();
   }
 
-  getCitiesList() {
-    this.weatherService.getCitiesJson().subscribe(data => {
-      this.citiesList = data;
-      console.log(this.citiesList);
-    }, error => {
-      this.isLoading = false;
-      console.log(error);
-    });
-  }
-
-  getCurrentWeather(lat, long) {
+  async getCitiesList() {
     this.isLoading = true;
-    this.weatherService.getCurrentWeather(lat, long).subscribe(res => {
-    this.isLoading = false;
-    }, error => {
+    try {
+      this.citiesList = await this.weatherService.getCitiesJson();
+      this.selectedCity = this.citiesList[0];
+      this.getCurrentWeather(this.citiesList[0].lat, this.citiesList[0].lon);
+      this.getWeatherForecast(this.citiesList[0].lat, this.citiesList[0].lon);
+      this.isLoading = false;
+    } catch (error) {
       this.isLoading = false;
       console.log(error);
-    });
+    }
   }
 
-  getWeatherForecast(lat,long) {
-    this.weatherService.getWeatherForecast(lat,long).subscribe(res => {
-    }, error => {
+  async getCurrentWeather(lat, long) {
+    try {
+      this.currentCityWeather = await this.weatherService.getCurrentWeather(lat, long);
+      console.log(this.currentCityWeather)
+    } catch (error) {
+      this.isLoading = false;
       console.log(error);
-    })
+    }
+  }
+
+  async getWeatherForecast(lat, long) {
+    this.isLoading = true;
+    try {
+      this.weatherForecast = await this.weatherService.getWeatherForecast(lat, long);
+      this.isLoading = false;
+    } catch (error) {
+      this.isLoading = false;
+      console.log(error);
+    }
   }
 
   onSelectCity(itemId: number) {
     this.selectedCity = this.citiesList.find(city => city.id === Number(itemId));
-    this.getCurrentWeather(this.selectedCity.lat, this.selectedCity.lon);
-    // this.getWeatherForecast(this.selectedCity.lat, this.selectedCity.lon);
+    this.getCurrentWeather(this.selectedCity.lat || this.citiesList[0].lat, this.selectedCity.lon || this.citiesList[0].lon);
+    this.getWeatherForecast(this.selectedCity.lat, this.selectedCity.lon);
   }
 
 }

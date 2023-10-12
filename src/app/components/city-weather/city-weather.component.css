@@ -1,20 +1,23 @@
 /* Add your CSS styles for the table here */
 .styled-table {
-    width: 100%;
-    /* border-collapse: collapse; */
-    margin-bottom: 20px;
+    width: 80%;
+    border-collapse: collapse;
+    margin: 15px 110px 20px auto;
   }
   
   .styled-table th {
-    border: 1px solid #7758BC;
+    border: 0px solid #7758BC;
     padding: 8px;
     text-align: center;
+    color: #ffffff;
   }
 
   .styled-table td {
-    border: 1px solid #7758BC;
-    /* padding: 8px; */
+    border: 0px solid #7758BC;
+    padding: 8px;
+    background-color: transparent;
     text-align: center;
+    color: #ffffff;
   }
   
   .styled-table th {
@@ -25,7 +28,7 @@
     /* background-color: #f9f9f9; */
   }
   
-  .styled-table tbody {
+  /* .styled-table tbody {
     background-color: #f1f1f1;
-  }
+  } */
   
