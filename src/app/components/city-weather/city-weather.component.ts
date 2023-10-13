@@ -23,8 +23,5 @@ export class CityWeatherComponent implements OnInit {
     const date = new Date(timestamp * 1000);
     return daysOfWeek[date.getDay()];
   }
-  
-
-  
 
 }

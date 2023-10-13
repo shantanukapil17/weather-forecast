@@ -44,23 +44,10 @@ describe('CitiesListComponent', () => {
       {id: 3038754, nm: "Ablon-sur-Seine", lat: 48.727322, lon: 2.42686}
 
     ];
-
-    // mockWeatherService.getCitiesJson.and.returnValue(of(mockCities));
-
     component.getCitiesList();
-
-    // mockWeatherService.getCitiesJson.and.returnValue(of(mockCities));
-
-    // Call the getCitiesList method
     component.getCitiesList();
-
-    // Expect the getCitiesJson method to have been called
     expect(mockWeatherService.getCitiesJson).toHaveBeenCalled();
-
-    // Expect citiesList to be populated with the mock cities
     expect(component.citiesList).toEqual(mockCities);
-
-    // Expect selectedCity to be the first city in the mock cities
     expect(component.selectedCity).toEqual(mockCities[0]);
 
   });
