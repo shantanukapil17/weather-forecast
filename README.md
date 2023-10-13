@@ -65,8 +65,7 @@ The use of asynchronous operations (e.g., fetching weather data) is handled effe
 Proper error handling (using try-catch blocks) ensures that the application can gracefully handle errors and display appropriate feedback to the user.
 
 # NETLIFY LINK
-https://app.netlify.com/sites/resonant-biscuit-a1bc71/deploys/6527cd3b36eeae29dc3bfe42
-
+https://65292cfee226482551bd9d47--fascinating-brigadeiros-a13748.netlify.app/
 
 ## Development server
 
