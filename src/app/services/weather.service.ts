@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class WeatherService {
   private apiUrl = 'https://api.openweathermap.org/data/2.5';
-  private  apiKey : '54b26081acba6412c04637e7a32f32e5';
+  public  apiKey = '9761058e45388cff11d7cb80afd9a662';
   constructor(private http: HttpClient) { }
 
   getCitiesJson(): Promise<any> {
