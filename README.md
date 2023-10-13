@@ -14,6 +14,7 @@ LOADER -
 I created another folder called shared where I created a loader component to show the loader when we select a city from the dropdown list.
 
 # How to run this project
+Go to the branch weather
 clone the project by using the git clone command and then go to the directory where you downloaded it and run 
 1. npm I
 2. ng serve
