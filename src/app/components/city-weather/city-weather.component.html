@@ -1,4 +1,4 @@
-<table class="styled-table" aria-describedby="table">
+<!-- <table class="styled-table" aria-describedby="table">
     <thead>
       <tr>
         <th>Tue</th>
@@ -9,20 +9,49 @@
     </thead>
     <tbody>
       <tr>
-        <td><i class="wi wi-icon-501"></i></td>
-        <td><i class="wi wi-icon-611"></i></td>
-        <td><i class="wi wi-icon-802"></i></td>
+        <td>
+          <i class="wi wi-icon-501"></i>
+          <br />
+          <span>{{ (weatherForecast[0]?.main?.temp_max || '') + '&deg;' }}</span>
+          <br />
+          <span>{{ (weatherForecast[0]?.main?.temp_min || '') + '&deg;' }}</span>
+        </td>
+        <td>
+          <i class="wi wi-icon-611"></i>
+          <br />
+          <span>{{ (weatherForecast[1]?.main?.temp_max || '') + '&deg;' }}</span>
+          <br />
+          <span>{{ (weatherForecast[1]?.main?.temp_min || '') + '&deg;' }}</span>
+        </td>
+        <td>
+          <i class="wi wi-icon-802"></i>
+          <br />
+          <span>{{ (weatherForecast[2]?.main?.temp_max || '') + '&deg;' }}</span>
+          <br />
+          <span>{{ (weatherForecast[2]?.main?.temp_min || '') + '&deg;' }}</span>
+        </td>
       </tr>
-      <tr>
-        <td>7&deg;</td>
-        <td>4&deg;</td>
-        <td>7&deg;</td>
-      </tr>
-      <tr>
-        <td>3&deg;</td>
-        <td>1&deg;</td>
-        <td>0&deg;</td>
-      </tr>
-      <!-- Add more rows as needed -->
     </tbody>
   </table>
+   -->
+
+   <table class="styled-table" aria-describedby="table">
+    <thead>
+      <tr>
+        <th *ngFor="let forecast of weatherForecast">{{ getDayName(forecast.dt) }}</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td *ngFor="let forecast of weatherForecast">
+          <i class="wi wi-icon-501"></i>
+          <br />
+          <span>{{ (forecast?.main?.temp_max || '') + '&deg;' }}</span>
+          <br />
+          <span>{{ (forecast?.main?.temp_min || '') + '&deg;' }}</span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  
+  

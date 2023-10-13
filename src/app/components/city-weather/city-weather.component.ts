@@ -7,8 +7,7 @@ import { WeatherService } from 'src/app/services/weather.service';
   styleUrls: ['./city-weather.component.css']
 })
 export class CityWeatherComponent implements OnInit {
-  @Input() lat : number;
-  @Input() lon : number;
+  @Input() weatherForecast = [];
 
   constructor(
     private weatherService: WeatherService
@@ -16,8 +15,15 @@ export class CityWeatherComponent implements OnInit {
   
 
   ngOnInit() {
-    console.log(this.lat, this.lon);
+    console.log(this.weatherForecast);
   }
+
+  getDayName(timestamp: number): string {
+    const daysOfWeek = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+    const date = new Date(timestamp * 1000);
+    return daysOfWeek[date.getDay()];
+  }
+  
 
   
 

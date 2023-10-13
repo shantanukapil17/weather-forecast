@@ -1,34 +1,22 @@
 /* Add your CSS styles for the table here */
 .styled-table {
-    width: 80%;
-    border-collapse: collapse;
-    margin: 15px 110px 20px auto;
-  }
-  
-  .styled-table th {
-    border: 0px solid #7758BC;
-    padding: 8px;
-    text-align: center;
-    color: #ffffff;
-  }
+  width: 80%;
+  border-collapse: collapse;
+  margin: 15px 110px 20px auto;
+}
 
-  .styled-table td {
-    border: 0px solid #7758BC;
-    padding: 8px;
-    background-color: transparent;
-    text-align: center;
-    color: #ffffff;
-  }
-  
-  .styled-table th {
-    background-color: #7758BB;
-  }
-  
-  .styled-table tbody tr:nth-child(even) {
-    /* background-color: #f9f9f9; */
-  }
-  
-  /* .styled-table tbody {
-    background-color: #f1f1f1;
-  } */
-  
+.styled-table th {
+  border: 0px solid #7758BC;
+  padding: 8px;
+  text-align: center;
+  color: #ffffff;
+  background-color: #7758BB;
+}
+
+.styled-table td {
+  border: 0px solid #7758BC;
+  padding: 8px;
+  background-color: transparent;
+  text-align: center;
+  color: #ffffff;
+}

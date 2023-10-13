@@ -15,6 +15,6 @@
 <div class="wi wi-icon-905 windy-icon"></div>
 <div class="windy-icon">{{currentCityWeather?.main?.temp}}&deg;</div>
 
-<app-city-weather *ngIf="selectedCity" [lat]="selectedCity?.lat || citiesList[0]?.lat" [lon]="selectedCity?.lon || citiesList[0]?.lon">
+<app-city-weather  [weatherForecast]="weatherForecast">
 </app-city-weather>
 
