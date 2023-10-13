@@ -39,7 +39,6 @@ export class CitiesListComponent implements OnInit {
   async getCurrentWeather(lat, long) {
     try {
       this.currentCityWeather = await this.weatherService.getCurrentWeather(lat, long);
-      // console.log(this.currentCityWeather)
     } catch (error) {
       this.isLoading = false;
       console.log(error);
@@ -70,6 +69,7 @@ export class CitiesListComponent implements OnInit {
       // Set the forecast data for the next 3 days
       this.weatherForecast = next3DaysForecasts;
       console.log(this.weatherForecast);
+
       this.isLoading = false;
     } catch (error) {
       this.isLoading = false;
